@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+
+import { ThemeProvider } from "../components/ThemeProvider";
+import AcessibilityPlugin from "@/components/AcessibilityPlugin";
+
 import "./globals.css";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
-    subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-    title: "Acessibility Template",
-    description: "This is a template of a plugin of Acessibility",
+    title: "Accessibility NextJS Starter Kit",
+    description: "This is a template of a plugin of Accessibility",
 };
 
 export default function RootLayout({
@@ -23,11 +16,17 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >
-                {children}
+        <html lang="en" suppressHydrationWarning>
+            <body>
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    {children}
+                    <AcessibilityPlugin />
+                </ThemeProvider>
             </body>
         </html>
     );
