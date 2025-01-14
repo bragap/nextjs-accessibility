@@ -4,7 +4,8 @@ type MyWebSiteContext = {
     mainContent: string,
     footer: string,
     buttonLabelStart: string,
-    buttonLabelStar: string
+    buttonLabelStar: string,
+    acc: string
 }
 
 const dictionaries: { [key: string]: () => Promise<MyWebSiteContext> } = {

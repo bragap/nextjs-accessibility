@@ -29,7 +29,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
 
                     <div className="flex items-center justify-center flex-wrap">
                         <p className="flex items-center gap-4 flex-wrap justify-center text-center sm:text-left">
-                            {["Next.js", "TailwindCSS", "Shadcn/UI", "ESLint", "SEO", `${dict.logo}`, "TypeScript"].map((tech, index) => (
+                            {["Next.js", "TailwindCSS", "Shadcn/UI", "ESLint", "SEO", `${dict.acc}`, "TypeScript"].map((tech, index) => (
                                 <span key={index} className="flex items-center gap-1 mb-2 sm:mb-0">
                                     {tech} <Sparkles strokeWidth={0.5} fill="true" />
                                 </span>
