@@ -8,45 +8,59 @@ interface AccessibilityContextType {
     lineHeight: number
     letterSpacing: number
     saturation: number
-    colorsPage: 'normal' | 'dark'
-    highlightedLetters: boolean
     toggleFontSize: () => void
     toggleContrast: () => void
     toggleLineHeight: () => void
     toggleLetterSpacing: () => void
     toggleSaturation: () => void
-    toggleColorsPage: () => void
-    toggleHighlightedLetters: () => void
 }
 
 const AccessibilityContext = createContext<AccessibilityContextType | undefined>(undefined)
 
 export const AccessibilityProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [fontSize, setFontSize] = useState(false)
-    const [contrast, setContrast] = useState<'normal' | 'high'>('normal')
-    const [lineHeight, setLineHeight] = useState(1.5)
-    const [letterSpacing, setLetterSpacing] = useState(0)
-    const [saturation, setSaturation] = useState(100)
-    const [colorsPage, setColorsPage] = useState<'normal' | 'dark'>('normal')
-    const [highlightedLetters, setHighlightedLetters] = useState(false)
+    const loadFromLocalStorage = () => {
+        const storedData = localStorage.getItem('accessibility-settings')
+        return storedData ? JSON.parse(storedData) : {}
+    }
 
-    const toggleFontSize = () => setFontSize(prev => !prev)
+    const {
+        fontSize: storedFontSize,
+        contrast: storedContrast,
+        lineHeight: storedLineHeight,
+        letterSpacing: storedLetterSpacing,
+        saturation: storedSaturation,
+    } = loadFromLocalStorage()
+
+    const [fontSize, setFontSize] = useState(storedFontSize ?? false)
+    const [contrast, setContrast] = useState<'normal' | 'high'>(storedContrast ?? 'normal')
+    const [lineHeight, setLineHeight] = useState(storedLineHeight ?? 1.5)
+    const [letterSpacing, setLetterSpacing] = useState(storedLetterSpacing ?? 0)
+    const [saturation, setSaturation] = useState(storedSaturation ?? 100)
+
+    const toggleFontSize = () => setFontSize((prev: boolean) => !prev)
     const toggleContrast = () => setContrast(prev => prev === 'normal' ? 'high' : 'normal')
-    const toggleLineHeight = () => setLineHeight(prev => prev === 1.5 ? 2 : 1.5)
-    const toggleLetterSpacing = () => setLetterSpacing(prev => prev === 0 ? 1 : 0)
-    const toggleSaturation = () => setSaturation(prev => prev === 100 ? 0 : 100)
-    const toggleColorsPage = () => setColorsPage(prev => prev === 'normal' ? 'dark' : 'normal')
-    const toggleHighlightedLetters = () => setHighlightedLetters(prev => !prev)
+    const toggleLineHeight = () => setLineHeight((prev: number) => prev === 1.5 ? 3 : 1.5)
+    const toggleLetterSpacing = () => setLetterSpacing((prev: number) => prev === 0 ? 1.9 : 0)
+    const toggleSaturation = () => setSaturation((prev: number) => prev === 100 ? 0 : 100)
+
 
     useEffect(() => {
-        document.documentElement.style.setProperty('--a11y-font-size', fontSize ? '120%' : '100%')
+        const accessibilitySettings = {
+            fontSize,
+            contrast,
+            lineHeight,
+            letterSpacing,
+            saturation,
+        }
+        localStorage.setItem('accessibility-settings', JSON.stringify(accessibilitySettings))
+
+        document.documentElement.style.setProperty('--a11y-font-size', fontSize ? '140%' : '100%')
         document.documentElement.style.setProperty('--a11y-line-height', `${lineHeight}`)
         document.documentElement.style.setProperty('--a11y-letter-spacing', `${letterSpacing}px`)
         document.documentElement.style.setProperty('--a11y-saturation', `${saturation}%`)
         document.documentElement.style.setProperty('--a11y-contrast', contrast === 'high' ? '150%' : '100%')
-        document.documentElement.classList.toggle('dark', colorsPage === 'dark')
-        document.documentElement.classList.toggle('a11y-highlighted-letters', highlightedLetters)
-    }, [fontSize, contrast, lineHeight, letterSpacing, saturation, colorsPage, highlightedLetters])
+
+    }, [fontSize, contrast, lineHeight, letterSpacing, saturation])
 
     return (
         <AccessibilityContext.Provider
@@ -56,15 +70,11 @@ export const AccessibilityProvider: React.FC<{ children: React.ReactNode }> = ({
                 lineHeight,
                 letterSpacing,
                 saturation,
-                colorsPage,
-                highlightedLetters,
                 toggleFontSize,
                 toggleContrast,
                 toggleLineHeight,
                 toggleLetterSpacing,
-                toggleSaturation,
-                toggleColorsPage,
-                toggleHighlightedLetters,
+                toggleSaturation
             }}
         >
             {children}
@@ -79,4 +89,3 @@ export const useAccessibility = () => {
     }
     return context
 }
-

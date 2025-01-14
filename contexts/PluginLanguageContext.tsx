@@ -49,14 +49,23 @@ const translations: Translations = {
         'pt-BR': 'Contraste',
         'en': 'Contrast',
     },
-    sixthButton: {
-        'pt-BR': 'Cores da página',
-        'en': 'Page colors',
-    },
     seventhButton: {
         'pt-BR': 'Saturação',
         'en': 'Saturation',
     },
+
+    darkMode: {
+        'pt-BR': 'Modo escuro',
+        'en': 'Dark mode',
+    },
+    lightMode: {
+        'pt-BR': 'Modo claro',
+        'en': 'Light mode',
+    },
+    colorPage: {
+        'pt-BR': 'Cores da página',
+        'en': 'Page colors',
+    }
 
 
 };

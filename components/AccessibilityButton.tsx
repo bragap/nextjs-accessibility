@@ -23,7 +23,7 @@ export const AccessibilityButton: React.FC<AccessibilityButtonProps> = ({
             variant={isActive ? "default" : "outline"}
             onClick={onClick}
         >
-            <div className="flex flex-wrap items-center gap-2 text-left">
+            <div className="flex flex-wrap items-center gap-2 text-left justify-start w-full">
                 <div className="block w-full">
                     <Icon />
                 </div>

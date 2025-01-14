@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { PersonStanding, Type, Contrast, LineChartIcon as LineHeight, LayoutListIcon as LetterSpacing, BookOpen, Link } from 'lucide-react'
+import { PersonStanding, Type, Contrast, UnfoldVertical as LineHeight, UnfoldHorizontal as LetterSpacing, AArrowUp, Eclipse } from 'lucide-react'
 import { ModeToggle } from "./ToggleDarkMode"
 import {
     Dialog,
@@ -16,6 +16,7 @@ import { useModalLanguage } from "@/contexts/PluginLanguageContext"
 import { AccessibilityButton } from "./AccessibilityButton"
 import { useAccessibility } from "@/contexts/AccessibilityContext"
 
+
 export default function AccessibilityPlugin() {
     const { t } = useModalLanguage()
     const {
@@ -24,15 +25,11 @@ export default function AccessibilityPlugin() {
         lineHeight,
         letterSpacing,
         saturation,
-        colorsPage,
-        highlightedLetters,
         toggleFontSize,
         toggleContrast,
         toggleLineHeight,
         toggleLetterSpacing,
         toggleSaturation,
-        toggleColorsPage,
-        toggleHighlightedLetters,
     } = useAccessibility()
 
     return (
@@ -56,28 +53,22 @@ export default function AccessibilityPlugin() {
                     <h2 className="font-semibold w-full">{t('firstTitle')}</h2>
                     <div className="grid grid-cols-2 gap-2">
                         <AccessibilityButton
-                            icon={Type}
+                            icon={AArrowUp}
                             label={t('firstButton')}
                             onClick={toggleFontSize}
                             isActive={fontSize}
                         />
                         <AccessibilityButton
-                            icon={Type}
-                            label={t('secondButton')}
-                            onClick={toggleHighlightedLetters}
-                            isActive={highlightedLetters}
-                        />
-                        <AccessibilityButton
-                            icon={Contrast}
-                            label={t('thirdButton')}
-                            onClick={toggleContrast}
-                            isActive={contrast === 'high'}
-                        />
-                        <AccessibilityButton
                             icon={LineHeight}
-                            label={t('fourthButton')}
+                            label={t('thirdButton')}
                             onClick={toggleLineHeight}
                             isActive={lineHeight > 1.5}
+                        />
+                        <AccessibilityButton
+                            icon={LetterSpacing}
+                            label={t('fourthButton')}
+                            onClick={toggleLetterSpacing}
+                            isActive={letterSpacing > 0}
                         />
                     </div>
                 </div>
@@ -86,24 +77,19 @@ export default function AccessibilityPlugin() {
                     <h2 className="font-semibold w-full">{t('secondTitle')}</h2>
                     <div className="grid grid-cols-2 gap-2">
                         <AccessibilityButton
-                            icon={LetterSpacing}
+                            icon={Contrast}
                             label={t('fifthButton')}
-                            onClick={toggleLetterSpacing}
-                            isActive={letterSpacing > 0}
+                            onClick={toggleContrast}
+                            isActive={contrast === 'high'}
                         />
                         <AccessibilityButton
-                            icon={BookOpen}
-                            label={t('sixthButton')}
+                            icon={Eclipse}
+                            label={t('seventhButton')}
                             onClick={toggleSaturation}
                             isActive={saturation < 100}
                         />
-                        <AccessibilityButton
-                            icon={Link}
-                            label={t('seventhButton')}
-                            onClick={toggleColorsPage}
-                            isActive={colorsPage === 'dark'}
-                        />
                         <ModeToggle />
+
                     </div>
                 </div>
             </DialogContent>

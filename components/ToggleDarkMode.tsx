@@ -5,36 +5,33 @@ import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+
+import { useModalLanguage } from "@/contexts/PluginLanguageContext"
 
 export function ModeToggle() {
-    const { setTheme } = useTheme()
+    const { setTheme, theme } = useTheme()
+    const { t } = useModalLanguage()
 
     return (
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button>
-                    <Sun className="h-[3rem] w-[3rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                    <Moon className="absolute h-[3rem] w-[3rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                    <span className="sr-only">Alterar cor</span>
-                </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setTheme("light")}>
-                    Claro
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}>
-                    Escuro
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>
-                    Sistema
-                </DropdownMenuItem>
-            </DropdownMenuContent>
-        </DropdownMenu>
+        <Button variant="outline" className="h-auto" onClick={() => setTheme(prev => (prev === "dark" ? "light" : "dark"))}>
+            <div className="flex flex-wrap items-center gap-2 text-left w-full">
+                <div className="block w-full">
+                    {theme === "dark" ? (
+                        <Moon className="h-[3rem] w-[3rem]" />
+                    ) : (
+                        <Sun className="h-[3rem] w-[3rem]" />
+                    )}
+                </div>
+                <div className="block w-full">
+                    {t("colorPage")}
+                </div>
+                <div>
+                    <span className={"text-xs text-blue-600"}>
+                        {theme === "dark" ? t("darkMode") : t("lightMode")}
+                    </span>
+                </div>
+            </div>
+        </Button>
+
     )
 }
