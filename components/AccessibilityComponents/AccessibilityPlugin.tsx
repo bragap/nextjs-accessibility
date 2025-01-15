@@ -35,7 +35,9 @@ export default function AccessibilityPlugin() {
     return (
         <Dialog>
             <DialogTrigger className="fixed top-[50%] right-0 h-9 w-9">
-                <PersonStanding className="bg-acc-blue text-acc-white w-full h-full text-xs rounded-none rounded-l-md flex items-center justify-center" />
+                <div className="h-[40px] bg-acc-blue rounded-none rounded-l-md flex items-center justify-center border border-acc-white">
+                    <PersonStanding className="text-acc-white w-full h-[30px] text-xs " />
+                </div>
             </DialogTrigger>
             <DialogContent className="bg-acc-gray text-primary" >
                 <DialogTitle className="bg-card">
