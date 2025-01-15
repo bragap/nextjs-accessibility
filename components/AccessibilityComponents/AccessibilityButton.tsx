@@ -31,7 +31,7 @@ export const AccessibilityButton: React.FC<AccessibilityButtonProps> = ({
                     {label}
                 </div>
                 <div>
-                    <span className={`text-xs ${isActive ? 'text-primary-foreground' : 'text-blue-600'}`}>
+                    <span className={`text-xs ${isActive ? 'text-primary-foreground' : 'text-acc-blue'}`}>
                         {isActive ? 'Ativo' : 'Padrão'}
                     </span>
                 </div>

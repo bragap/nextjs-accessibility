@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react';
-import { useModalLanguage } from '@/contexts/PluginLanguageContext';
+import { useModalLanguage } from '@/contexts/AccessibilityContexts/PluginLanguageContext';
 import { Button } from '@/components/ui/button';
 import { ChevronDown } from 'lucide-react';
 import {

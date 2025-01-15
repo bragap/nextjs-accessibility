@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Accessibility NextJS Starter Kit
 
-## Getting Started
+This **Next.js Starter Kit** offers a simple and practical solution for integrating an **accessibility plugin** into your project. With it, you can get started quickly, saving time and focusing on the most important tasks. I have configured and included all the essential libraries and tools, allowing you to focus on development while making your site more inclusive and accessible for everyone.
 
-First, run the development server:
+## Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Next.js v15** with Server Actions for optimized server-side logic and performance.
+- **Tailwind CSS** for streamlined and responsive styling.
+- **Shadcn/ui** for pre-built components and enhanced styling options.
+- **Built-in SEO** capabilities for improved search engine visibility right out of the box.
+- **Dark mode support** with an easy-to-use toggle button.
+- **Preconfigured fonts** for a polished and consistent design.
+- **ESLint** integration for efficient code linting and error detection.
+- **Type safety** with **TypeScript** to ensure robust and error-free code.
+- **Comprehensive documentation** to facilitate easy usage and customization.
+- **Accessibility plugin** to ensure your website is usable by all users, regardless of abilities.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Accessibility Plugin
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project includes an **accessibility plugin** designed to make your site more inclusive and accessible. The plugin adds essential features such as:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Font Control**: 
+  - Adjust font size to improve readability.
+  - Control line spacing for better text clarity.
+  - Modify letter spacing to enhance accessibility for users with visual impairments.
+  
+- **Color Control**: 
+  - Adjust saturation for better color perception.
+  - Modify contrast to improve text and background visibility.
+  - Toggle between light and dark modes for visual comfort.
 
-## Learn More
+- **Optimized Screen Reader Support**: Ensures content is accessible to visually impaired users.
+- **Visible Focus Management**: Enables efficient navigation using only the keyboard.
+- **Alt Text for Images**: Ensures all visual content is effectively described.
 
-To learn more about Next.js, take a look at the following resources:
+## How to Use
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   git clone --depth=1 https://github.com/bragap/nextjs-accessibility-starter your-project-name
+   
+   cd your-project-name
+   ```
 
-## Deploy on Vercel
+2. Install the dependencies:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Run the project:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Access the site at [http://localhost:3000](http://localhost:3000).
+
+## Customizations
+
+To customize the accessibility plugin or other aspects of the project, refer to the internal documentation or modify settings in the `accessibility-plugin-config.js` file. You can adjust font preferences, color settings, and other configurations to better serve your users' needs.
+
+## Contributions
+
+Contributions are welcome! If you identify issues or wish to improve accessibility or other aspects of the project, feel free to open an **issue** or submit a **pull request**.
+
+## Maintainer
+
+[Pedro Braga](https://github.com/bragap)

@@ -14,7 +14,6 @@ export function middleware(request: NextRequest) {
     const pathname = request.nextUrl.pathname
     const locale = getLocale(request)
 
-    // Nesse caso, se a pathname não começar com locale, redireciono
     if (!pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`) {
         const newUrl = new URL(`/${locale}${pathname}`, request.url)
         return NextResponse.redirect(newUrl)

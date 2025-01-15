@@ -6,7 +6,7 @@ import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
 
-import { useModalLanguage } from "@/contexts/PluginLanguageContext"
+import { useModalLanguage } from "@/contexts/AccessibilityContexts/PluginLanguageContext"
 
 export function ModeToggle() {
     const { setTheme, theme } = useTheme()
@@ -26,7 +26,7 @@ export function ModeToggle() {
                     {t("colorPage")}
                 </div>
                 <div>
-                    <span className={"text-xs text-blue-600"}>
+                    <span className={"text-xs text-acc-blue"}>
                         {theme === "dark" ? t("darkMode") : t("lightMode")}
                     </span>
                 </div>

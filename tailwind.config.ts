@@ -50,6 +50,11 @@ export default {
                     '4': 'hsl(var(--chart-4))',
                     '5': 'hsl(var(--chart-5))'
                 },
+                acc: {
+                    'blue': 'hsl(var(--acc-blue))',
+                    'white': 'hsl(var(--acc-white))',
+                    'gray': 'hsl(var(--acc-gray))',
+                }
             },
             borderRadius: {
                 lg: 'var(--radius)',

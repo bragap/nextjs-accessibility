@@ -38,12 +38,12 @@ const translations: Translations = {
         'en': 'Highlighted letters',
     },
     thirdButton: {
-        'pt-BR': 'Espaçamento entre linhas',
-        'en': 'Spacing between lines',
+        'pt-BR': 'Espaço entre linhas',
+        'en': 'Space between lines',
     },
     fourthButton: {
-        'pt-BR': 'Espaçamento entre letras',
-        'en': 'Spacing between letters',
+        'pt-BR': 'Espaço entre letras',
+        'en': 'Space between letters',
     },
     fifthButton: {
         'pt-BR': 'Contraste',
@@ -66,8 +66,6 @@ const translations: Translations = {
         'pt-BR': 'Cores da página',
         'en': 'Page colors',
     }
-
-
 };
 
 const PluginLanguageContext = createContext<PluginLanguageContextType | undefined>(undefined);

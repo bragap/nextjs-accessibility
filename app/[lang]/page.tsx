@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Github, Sparkles } from "lucide-react";
 import { montserrat } from "@/app/ui/fonts";
 import { getDictionary } from '@/app/[lang]/dictionaries';
-import LanguageToggle from '@/components/LanguageToggle';
+import LanguageToggle from '@/components/AccessibilityComponents/HomeLanguageToggle';
 
 
 export default async function Home({ params: { lang } }: { params: { lang: string } }) {

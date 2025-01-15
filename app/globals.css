@@ -32,13 +32,16 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-
+    
     /* Accessibility variables */
     --a11y-font-size: 100%;
     --a11y-line-height: 1.5;
     --a11y-letter-spacing: 0px;
     --a11y-saturation: 100%;
     --a11y-contrast: 100%;
+    --acc-blue: 225 85% 59%;
+    --acc-white: 0 0% 100%;
+    --acc-gray: 220 13% 91%;
   }
   
   .dark {
@@ -66,6 +69,11 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+
+    /* Accessibility variables */
+    --acc-blue: 225 85% 59%;
+    --acc-white: 0 0% 100%;
+    --acc-gray: 25 18.3% 7.1%;
   }
 }
 

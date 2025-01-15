@@ -12,9 +12,9 @@ import {
 import Image from "next/image"
 import { Separator } from "@/components/ui/separator"
 import { PluginLanguageToggle } from "./PluginLanguageToggle"
-import { useModalLanguage } from "@/contexts/PluginLanguageContext"
+import { useModalLanguage } from "@/contexts/AccessibilityContexts/PluginLanguageContext"
 import { AccessibilityButton } from "./AccessibilityButton"
-import { useAccessibility } from "@/contexts/AccessibilityContext"
+import { useAccessibility } from "@/contexts/AccessibilityContexts/AccessibilityContext"
 
 
 export default function AccessibilityPlugin() {
@@ -35,10 +35,10 @@ export default function AccessibilityPlugin() {
     return (
         <Dialog>
             <DialogTrigger className="fixed top-[50%] right-0 h-9 w-9">
-                <PersonStanding className="bg-blue-600 text-white w-full h-full text-xs rounded-none rounded-l-md flex items-center justify-center" />
+                <PersonStanding className="bg-acc-blue text-acc-white w-full h-full text-xs rounded-none rounded-l-md flex items-center justify-center" />
             </DialogTrigger>
-            <DialogContent className="bg-gray-200">
-                <DialogTitle>
+            <DialogContent className="bg-acc-gray text-primary" >
+                <DialogTitle className="bg-card">
                     <div className="flex justify-around items-center gap-5">
                         <div className="flex items-center gap-2">
                             <Image src="/logo.png" width={25} height={25} alt="Logo" />
