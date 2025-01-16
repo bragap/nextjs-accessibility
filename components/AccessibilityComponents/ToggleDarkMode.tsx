@@ -12,26 +12,40 @@ export function ModeToggle() {
     const { setTheme, theme } = useTheme()
     const { t } = useModalLanguage()
 
+    console.log(theme, "theme")
     return (
-        <Button variant="outline" className="h-auto" onClick={() => setTheme(prev => (prev === "dark" ? "light" : "dark"))}>
+        <Button
+            variant="outline"
+            className="h-auto"
+            onClick={() =>
+                setTheme((prev) => {
+                    const systemIsDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                    if (prev === "dark" || (prev === "system" && systemIsDark)) {
+                        return "light";
+                    }
+                    return "dark";
+                })
+            }
+        >
             <div className="flex flex-wrap items-center gap-2 text-left w-full">
                 <div className="block w-full">
-                    {theme === "dark" ? (
+                    {theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches) ? (
                         <Moon className="h-[3rem] w-[3rem]" />
                     ) : (
                         <Sun className="h-[3rem] w-[3rem]" />
                     )}
                 </div>
-                <div className="block w-full">
-                    {t("colorPage")}
-                </div>
+                <div className="block w-full">{t("colorPage")}</div>
                 <div>
-                    <span className={"text-xs text-acc-blue"}>
-                        {theme === "dark" ? t("darkMode") : t("lightMode")}
+                    <span className="text-xs text-acc-blue">
+                        {theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches)
+                            ? t("darkMode")
+                            : t("lightMode")}
                     </span>
                 </div>
             </div>
         </Button>
+
 
     )
 }
