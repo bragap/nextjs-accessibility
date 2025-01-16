@@ -7,7 +7,7 @@ import { AccessibilityProvider } from "@/contexts/AccessibilityContexts/Accessib
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
-    title: "Accessibility NextJS Starter Kit by Pedro Braga",
+    title: "Accessibility NextJS Starter Kit y Pedro Braga",
     description: "Simple and easy to use nextjs 14 starter template with a plugin focus on accessibility made by Pedro Braga.",
     metadataBase: new URL('https://nextjs.adarshdubey.com'),
     openGraph: {
@@ -33,7 +33,7 @@ export default function RootLayout({
 }) {
     return (
         <AccessibilityProvider>
-            <html  suppressHydrationWarning>
+            <html suppressHydrationWarning>
                 <body className={`${montserrat.className} antialiased`}>
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange >
                         <PluginLanguageProvider>
