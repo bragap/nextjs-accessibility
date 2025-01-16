@@ -57,9 +57,6 @@ This project includes an **accessibility plugin** designed to make your site mor
 
 4. Access the site at [http://localhost:3000](http://localhost:3000).
 
-## Customizations
-
-To customize the accessibility plugin or other aspects of the project, refer to the internal documentation or modify settings in the `accessibility-plugin-config.js` file. You can adjust font preferences, color settings, and other configurations to better serve your users' needs.
 
 ## Contributions
 
