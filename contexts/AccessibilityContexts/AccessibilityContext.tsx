@@ -19,7 +19,8 @@ const AccessibilityContext = createContext<AccessibilityContextType | undefined>
 
 export const AccessibilityProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const loadFromLocalStorage = () => {
-        const storedData = localStorage.getItem('accessibility-settings')
+        const localStorage = typeof window !== 'undefined' ? window.localStorage : null
+        const storedData = localStorage?.getItem('accessibility-settings')
         return storedData ? JSON.parse(storedData) : {}
     }
 
