@@ -7,19 +7,19 @@ import { AccessibilityProvider } from "@/contexts/AccessibilityContexts/Accessib
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
-    title: "Accessibility NextJS Starter Kit by Pedro Braga",
+    title: "NextJS Accessibility Starter Kit by Pedro Braga",
     description: "Simple and easy to use nextjs 14 starter template with a plugin focus on accessibility made by Pedro Braga.",
     metadataBase: new URL('https://nextjs.adarshdubey.com'),
     openGraph: {
-        title: 'Accessibility NextJS Starter Kit by Pedro Braga',
+        title: 'NextJS Accessibility Starter Kit by Pedro Braga',
         description:
             'Simple and easy to use nextjs 14 starter template with a plugin focus on accessibility made by Pedro Braga.',
-        siteName: 'Accessibility NextJS Starter Kit by Pedro Braga',
+        siteName: 'NextJS Accessibility Starter Kit by Pedro Braga',
         images: {
             url: '/logo.png',
             width: 1920,
             height: 960,
-            alt: "The only nexjs starter kit with focus on accessibility you'll ever heard.",
+            alt: "The only NextJS starter kit with focus on accessibility you'll ever heard.",
         },
     },
 };
