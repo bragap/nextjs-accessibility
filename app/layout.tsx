@@ -28,14 +28,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children,
-    params: { lang },
 }: {
     children: React.ReactNode
-    params: { lang: string }
 }) {
     return (
         <AccessibilityProvider>
-            <html lang={lang} suppressHydrationWarning>
+            <html  suppressHydrationWarning>
                 <body className={`${montserrat.className} antialiased`}>
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange >
                         <PluginLanguageProvider>
